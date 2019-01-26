@@ -1,0 +1,17 @@
+
+
+$color-primary: rgb(49, 133, 189);
+$color-secondary: rgb(153, 73, 80);
+$color-accent: rgb(177, 185, 190);
+
+.header {
+
+    width: 100%;
+    height: 10%;
+    background: $color-secondary;
+}
+
+.buffer {
+    height: 10px;
+    background: $color-accent;
+}
