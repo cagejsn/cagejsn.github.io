@@ -1,5 +1,3 @@
-
-
 $color-primary: rgb(49, 133, 189);
 $color-secondary: rgb(153, 73, 80);
 $color-accent: rgb(177, 185, 190);
@@ -18,4 +16,10 @@ $color-accent: rgb(177, 185, 190);
 
 body {
     background: $color-primary;
+}
+
+.embedded-doc {
+    width: 100%;
+    height: 1000px;
+
 }
