@@ -1,21 +1,25 @@
 .header {
   width: 100%;
   height: 10%;
-  background: #994950;
+  background: #b1b9be;
 }
 
 .buffer {
   height: 10px;
-  background: #b1b9be;
+  background: #994950;
 }
 
 body {
   background: #3185bd;
 }
 
+ul > li {
+  font-size: large;
+}
+
 .embedded-doc {
   width: 100%;
   height: 1000px;
-
 }
+
 /*# sourceMappingURL=style.css.map */

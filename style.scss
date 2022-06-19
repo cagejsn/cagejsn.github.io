@@ -1,6 +1,6 @@
 $color-primary: rgb(49, 133, 189);
-$color-secondary: rgb(153, 73, 80);
-$color-accent: rgb(177, 185, 190);
+$color-accent: rgb(153, 73, 80);
+$color-secondary: rgb(177, 185, 190);
 
 .header {
 
@@ -16,6 +16,10 @@ $color-accent: rgb(177, 185, 190);
 
 body {
     background: $color-primary;
+}
+
+ul > li {
+    font-size: large;
 }
 
 .embedded-doc {
