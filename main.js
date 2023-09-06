@@ -18,7 +18,7 @@ Vue.component("section-links", {
 
 Vue.component("resume", {
   props: ["url"],
-  template: '<embed src="{{ url }}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"></embed>'
+  template: '<iframe allowtransparency="true" src="{{ url }}#toolbar=0&navpanes=0&scrollbar=0&view=FitH" type="application/pdf" frameBorder="0" scrolling="auto" style="width: 100%; height: 100%"></iframe>'
 })
 
 new Vue({
