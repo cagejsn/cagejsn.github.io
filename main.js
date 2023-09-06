@@ -16,6 +16,11 @@ Vue.component("section-links", {
   template: '<div><li v-for="link in links" > {{link}} </li ></div>'
 })
 
+Vue.component("resume", {
+  props: ["url"],
+  template: '<embed src="{{ url }}#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" frameBorder="0" scrolling="auto" height="100%" width="100%"></embed>'
+})
+
 new Vue({
   el: '#app',
 
@@ -23,7 +28,7 @@ new Vue({
     return content
   },
 
-  template: '<div><section-bio v-bind:bio="bio"> </section-bio> <section-links v-bind:links="links"></section-links></div>',
+  template: '<resume url="./resume.pdf"></resume>',
 
   created: function () {
     $.getJSON("content.json", function (data) {
