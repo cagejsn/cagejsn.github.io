@@ -32,7 +32,7 @@ export default {
 <template>
   <v-app>
     <v-app-bar density="compact">
-      <v-tabs v-model="tab" align-tabs="title">
+      <v-tabs v-model="tab" >
         <v-tab v-for="item in items" :key="item" :value="item">
           {{ item }}
         </v-tab>
