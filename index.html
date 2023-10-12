@@ -1,14 +1,57 @@
-<!doctype html>
-<html style="height: 100%;">
+<html>
+	<head>
+		<title>Cage Johnson</title>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.3.21/dist/vuetify.min.css">
+		<link rel="stylesheet" href="style.css">
+		
+		
+	</head>
+<body>
+	<div id="app"></div>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.21/dist/vuetify.min.js"></script>
+	<script>
+		const { createApp } = Vue
+		const { createVuetify } = Vuetify
 
-<head>
-	<link rel="stylesheet" type="text/css" href="style.css" />
-</head>
+		const options = {
+			moduleCache: {
+				vue: Vue
+			},
+			async getFile(url) {
 
-<body style="height: 100%;">
-	<div id="app"></div>	
+				const res = await fetch(url);
+				if (!res.ok)
+					throw Object.assign(new Error(res.statusText + ' ' + url), { res });
+				return {
+					getContentData: asBinary => asBinary ? res.arrayBuffer() : res.text(),
+				}
+			},
+			addStyle(textContent) {
+
+				const style = Object.assign(document.createElement('style'), { textContent });
+				const ref = document.head.getElementsByTagName('style')[0] || null;
+				document.head.insertBefore(style, ref);
+			},
+
+		}
+
+		const { loadModule } = window['vue3-sfc-loader'];
+
+		const app = createApp({
+			components: {				
+				'personal-website': Vue.defineAsyncComponent(() => loadModule('./PersonalWebsite.vue', options))
+			},
+			template: '<personal-website> </personal-website>'
+		});
+
+
+		const vuetify = createVuetify()
+		app.use(vuetify).mount('#app');
+
+	</script>
 </body>
-<script src="https://npmcdn.com/vue@1.0.25/dist/vue.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="./main.js"></script>
+
 </html>
