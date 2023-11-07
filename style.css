@@ -4,8 +4,25 @@ html {
 }
 
 .window-item {
-  height: 100%;
-  /* width: calc(100vw - 48px); */
+
+  height: calc(100vh - 48px);
+  overflow-y: scroll;
+  margin-top: 48px;
+  /* display: flex; */
+  
 }
 
+.projects-container {
+  flex-grow: 1;
+  background-color: #eeeeee;
+  height: auto;
+}
 
+/* 
+.project-card:last-child {
+  margin-bottom: 100px;
+} */
+
+.team-member-chip {
+  margin-right: 2px;
+}

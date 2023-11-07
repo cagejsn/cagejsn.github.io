@@ -31,27 +31,29 @@ export default {
 
 <template>
   <v-app>
-    <v-app-bar density="compact">
-      <v-tabs v-model="tab" >
+
+    <v-app-bar density="compact" >
+      <v-tabs v-model="tab">
         <v-tab v-for="item in items" :key="item" :value="item">
           {{ item }}
         </v-tab>
       </v-tabs>
     </v-app-bar>
 
-    <v-main>
-      <v-window v-model="tab" style="height: 100%">
-        <v-window-item value="Projects" class="window-item">
-          <projects></projects>
-        </v-window-item>
-        <v-window-item value="About Me" class="window-item">
-          <about-me></about-me>
-        </v-window-item>
-        <v-window-item value="Resume" class="window-item">
-          <resume url="./resume.pdf"></resume>
-        </v-window-item>
-      </v-window>
-    </v-main>
+
+    <v-window v-model="tab" style="height: 100%">
+      <v-window-item value="Projects" class="window-item">
+        <projects></projects>
+      </v-window-item>
+      <v-window-item value="About Me" class="window-item">
+        <about-me></about-me>
+      </v-window-item>
+      <v-window-item value="Resume" class="window-item">
+        <resume url="./resume.pdf"></resume>
+      </v-window-item>
+    </v-window>
+
+
   </v-app>
 </template>
 
