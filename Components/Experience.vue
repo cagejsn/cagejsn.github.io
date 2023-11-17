@@ -273,7 +273,7 @@ export default defineComponent({
                 personalOrProfessional: "Professional",
                 organzation: "Slalom Consulting",
                 date: "2023-01",
-                description: "I helped a large multi-national corporation build a set of highly configurable datapipelines that moved CRM data from various regional systems to a central datastore so it could be queries uniformly accross the enterprise.",
+                description: "I helped a large multi-national corporation build a set of highly configurable datapipelines that moved CRM data from various regional systems to a central datastore so it could be queried uniformly accross the enterprise.",
                 images: [],
                 technologies: ["python3", "golang", 'Google Cloud Platform', "Postgres"],
                 role: "Engineering Lead"
