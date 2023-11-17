@@ -19,12 +19,12 @@ export default {
                     What can I do for your organization?
                 </v-card-title>
                 <v-card-text>
-                    Experience in all parts of the Technology Stack <br><br>
-                    Proficient in many popular programming languages. <br><br>
+                    Experienced in all parts of the Technology Stack (Database, Frontend, Backend, Infra). <br><br>
+                    Proficient in many popular programming languages (go, python, Java, Swift, HCL, bash, etc.). <br><br>
                     Quality-Minded, Highly productive Senior Software Engineer. <br><br>
-                    Team Player, focused on developing the Team over time. <br><br>
-                    Wide Experience from 6 years of Consulting. <br><br>
-                    Experience with several Public Clouds and Modern Cloud Architectures. <br><br>
+                    A Team Player, focused on developing the Team over time. <br><br>
+                    Widely Experience from 6 years of Consulting. <br><br>
+                    Experienced with several Public Clouds and Modern Cloud Architectures. <br><br>
                     Proven track record of delivering results and succeeding in challenging situations. 
                 </v-card-text>
             </v-card>
@@ -33,7 +33,7 @@ export default {
 
             <v-card class="mt-3">
                 <v-card-title style="text-wrap: pretty; white-space: normal; word-break: keep-all;">
-                    What I am looking for
+                    What I am looking for:
                 </v-card-title>
 
 
