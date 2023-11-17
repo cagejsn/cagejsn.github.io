@@ -26,3 +26,17 @@ html {
 .team-member-chip {
   margin-right: 2px;
 }
+
+.v-timeline-item {
+  width: 100%;
+  max-width: 100%;
+}
+ 
+.v-timeline-item__body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.v-card-experience-item {
+  width: calc(100vw - 100px)
+}

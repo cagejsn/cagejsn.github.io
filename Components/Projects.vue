@@ -1,7 +1,8 @@
 <script lang="ts">
 import ProjectCard from './ProjectCard.vue'
 
-export default {
+import { defineComponent } from 'vue'
+export default ({
 
     data: () => ({
         projects: [
@@ -23,19 +24,19 @@ export default {
             {
                 title: 'Bicycle Yoga Mat Holder',
                 imgs: ['./static/yoga_mat_holder1.jpg', './static/yoga_mat_holder2.jpg'],
-                description: "I made a yoga mat holder that goes on a bike's handlebars.",                
+                description: "I made a yoga mat holder that goes on a bike's handlebars.",
                 team: []
             },
             {
                 title: 'Bird House',
                 imgs: ['./static/bird_house2.jpg', './static/bird_house1.jpg', './static/bird_house3.jpg'],
-                description: "I recycled an old fence into a bird house.",                
+                description: "I recycled an old fence into a bird house.",
                 team: []
             },
             {
                 title: 'Movable Post',
                 imgs: ['./static/concrete_post1.jpg', './static/concrete_post2.jpg'],
-                description: "These movable posts have a cement base.",                
+                description: "These movable posts have a cement base.",
                 team: []
             },
 
@@ -51,7 +52,7 @@ export default {
     components: {
         ProjectCard
     }
-}
+})
 
 </script>
 <template>
@@ -61,7 +62,7 @@ export default {
 
 
 
-            <project-card class=" v-col-sm-12 v-col-md-12 v-col-lg-6  v-col-xl-4 project-card" v-for="project in projects"
+            <project-card class=" v-col-sm-12 v-col-md-12 v-col-lg-6  v-col-xl-4 project-card" v-for="project in this.projects"
                 :key="project" :cardContent="project">
             </project-card>
 
