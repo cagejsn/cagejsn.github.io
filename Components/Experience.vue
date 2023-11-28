@@ -176,7 +176,7 @@ export default defineComponent({
                 date: "2020-01",
                 description: "I was part of the team that built a 'refund' api for a Venmo competitior.",
                 images: [],
-                technologies: ["java", "spring boot", "karate"],
+                technologies: ["java", "spring boot", "karate", "jenkins"],
             },
 
             {
@@ -188,7 +188,7 @@ export default defineComponent({
                 date: "2020-01",
                 description: "I worked a internal product for developers to provision cloud resources at a company with a multi-cloud strategy.",
                 images: [],
-                technologies: ["typeScript", "vue", "express", "Microsoft SQL Server"],
+                technologies: ["typeScript", "vue", "express", "Microsoft SQL Server", "heroku"],
             },
 
             {
@@ -237,7 +237,7 @@ export default defineComponent({
                 date: "2022-03",
                 description: "I served as the Engineering Lead and Quality Lead for a re-build of the ETL at the heart of a Customer Data Platform (CDP). The CDP was a 'bring-your-own' data marketing solution that allowed users to run marketing campaigns based on the data they uploaded. Additionally, the ETL at the heart of the platform had built in transforms to help users massage the data into a uniform and usable format.",
                 images: [],
-                technologies: ["terraform", "python", "AWS Lambda", 'AWS Glue', "AWS DynamoDB", "AWS Step Functions", "Snowflake"],
+                technologies: ["terraform", "python", "AWS Lambda",  'AWS IAM', 'AWS Glue', "AWS DynamoDB", "AWS Step Functions", "Snowflake", "Gitlab CI"],
                 role: "Engineering Lead"
             },
 
