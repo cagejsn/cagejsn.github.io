@@ -128,7 +128,7 @@ export default defineComponent({
                 date: "2018-01",
                 description: "While I was at Mutual Mobile I built fingerprint login for H-E-B's Android App. When the feature first went live it was used by hundreds-of-thousands of users. This App has since been retired and replaced.",
                 images: [],
-                technologies: ["Android"],
+                technologies: ["android"],
             },
 
             {
@@ -140,7 +140,7 @@ export default defineComponent({
                 date: "2018-05",
                 description: "I worked on a service in a brand new cloud architecture to help an online retailer move from on-prem to the cloud.",
                 images: [],
-                technologies: ["Java", "Spring Boot", "Google Cloud Platform"],
+                technologies: ["java", "spring boot", "Google Cloud Platform"],
             },
 
             {
@@ -152,7 +152,7 @@ export default defineComponent({
                 date: "2019-11",
                 description: "Our hackathon entry was a system to track air-worthiness for commerical aircraft. Our team advanced to the finals.",
                 images: [],
-                technologies: ["Hyperledger Fabric", "Javascript"],
+                technologies: ["Hyperledger Fabric", "javascript"],
             },
 
             {
@@ -176,7 +176,7 @@ export default defineComponent({
                 date: "2020-01",
                 description: "I was part of the team that built a 'refund' api for a Venmo competitior.",
                 images: [],
-                technologies: ["Java", "Spring Boot", "Karate"],
+                technologies: ["java", "spring boot", "karate"],
             },
 
             {
@@ -188,7 +188,7 @@ export default defineComponent({
                 date: "2020-01",
                 description: "I worked a internal product for developers to provision cloud resources at a company with a multi-cloud strategy.",
                 images: [],
-                technologies: ["TypeScript", "Vue", "Express", "SQL Server"],
+                technologies: ["typeScript", "vue", "express", "Microsoft SQL Server"],
             },
 
             {
@@ -200,7 +200,7 @@ export default defineComponent({
                 date: "2020-04",
                 description: "I worked on re-platforming several applications in a large digital advertising organization. Additionally, I worked on feature development to support advertising & billing in a new territory. Near the end of this project I collaborated with a Senior Engineer to build a Test Harness for these complex billing jobs. This would enable a later re-write which I would go on to help with.",
                 images: [],
-                technologies: ["Java", "python2", "python3", "airflow", "docker", "Spring Boot", "Oracle"],
+                technologies: ["Java", "python2", "python3", "airflow", "docker", "Spring Boot", "oracle"],
             },
 
             {
@@ -210,9 +210,9 @@ export default defineComponent({
                 personalOrProfessional: "Professional",
                 organzation: "Slalom Consulting",
                 date: "2021-08",
-                description: "I worked on a re-write of the billing jobs code base from scratch in Java. Additionally, I led a team to implement a large tax feature across several applications.",
+                description: "I worked on a re-write of the billing jobs code base from scratch in Java. Additionally, I led a team to implement a large tax feature across several applications. I was responsible for the design and testing strategy of this Tax Feature and I wrote a body of architecture documents to help my team understand the changes to each database and application.",
                 images: [],
-                technologies: ["Java", "python3", "airflow", "docker", "Drop Wizard", "Oracle"],
+                technologies: ["java", "python3", "airflow", "docker", "drop wizard", "oracle"],
                 role: "Engineering Lead"
             },
 
@@ -237,7 +237,7 @@ export default defineComponent({
                 date: "2022-03",
                 description: "I served as the Engineering Lead and Quality Lead for a re-build of the ETL at the heart of a Customer Data Platform (CDP). The CDP was a 'bring-your-own' data marketing solution that allowed users to run marketing campaigns based on the data they uploaded. Additionally, the ETL at the heart of the platform had built in transforms to help users massage the data into a uniform and usable format.",
                 images: [],
-                technologies: ["terraform", "python", "AWS Lambda", 'AWS Glue', "DynamoDB", "Snowflake"],
+                technologies: ["terraform", "python", "AWS Lambda", 'AWS Glue', "AWS DynamoDB", "AWS Step Functions", "Snowflake"],
                 role: "Engineering Lead"
             },
 
@@ -250,7 +250,7 @@ export default defineComponent({
                 date: "2022-10",
                 description: "I took over as the engineering lead for an onboarding portal project, and delivered it to production. In addition to normal feature work, I integrated DataDog Real User Monitoring, and wrote runbooks on the deployment methods.",
                 images: [],
-                technologies: ["DjangoCMS", "python", "html/css/js", 'DataDog RUM', "Postgres"],
+                technologies: ["djangoCMS", "python", "html/css/js", 'DataDog RUM', "postgres", 'nginx', 'docker'],
                 role: "Engineering Lead"
             },
 
@@ -263,7 +263,7 @@ export default defineComponent({
                 date: "2022-08",
                 description: "While on Personal Leave from Slalom, I built an e-learning platform called Studier.",
                 images: [],
-                technologies: ["terraform", "golang", "vue2", 'AWS', "Postgres"],
+                technologies: ["terraform", "golang", "vue2", 'AWS', "postgres", 'nginx'],
             },
 
             {
@@ -275,7 +275,7 @@ export default defineComponent({
                 date: "2023-01",
                 description: "I helped a large multi-national corporation build a set of highly configurable datapipelines that moved CRM data from various regional systems to a central datastore so it could be queried uniformly accross the enterprise.",
                 images: [],
-                technologies: ["python3", "golang", 'Google Cloud Platform', "Postgres"],
+                technologies: ["python3", "golang", 'Google Cloud Platform', "postgres", 'docker', 'terraform'],
                 role: "Engineering Lead"
             },
 
@@ -288,7 +288,7 @@ export default defineComponent({
                 date: "2023-07",
                 description: "As part of a team responsible for Data Governance Tools, I built a data pipeline that identified duplicate datasets in different data stores. I also built a dashboard with streamlit which allowed for a manual review process of the 'clustered' datasets. This helped reduce the total workload on stewards.",
                 images: [],
-                technologies: ["python3.11", "streamlit", "Postgres", "airflow", "Alation", "Datahub"],
+                technologies: ["python3.11", "streamlit", "postgres", "airflow", "alation", "datahub"],
                 role: "Engineering Lead"
             },
 
