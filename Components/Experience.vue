@@ -47,6 +47,13 @@ export default defineComponent({
                 date: "2018-04"
             },
             {
+
+                type: 'Event',
+                personalOrProfessional: 'Professional',
+                description: "Started working at Importal",
+                date: "2024-01"
+            },
+            {
                 type: 'Event',
                 personalOrProfessional: 'Professional',
                 description: "Left Slalom Consulting",
@@ -291,20 +298,18 @@ export default defineComponent({
                 technologies: ["python3.11", "streamlit", "postgres", "airflow", "alation", "datahub"],
                 role: "Engineering Lead"
             },
-
             {
-                title: 'Looking for my next role',
+                title: 'Importal (Startup)',
                 type: 'Project',
                 medium: "Software",
                 personalOrProfessional: "Professional",
-                organzation: "Job Search",
-                date: "2023-11",
-                description: "I am looking for my next role. I would like to work for a 30-500 person growth stage company. I am based in Austin and I am interested in in-person, hybrid, or remote roles.",
-                images: [],                
-                role: "Senior Software Engineer",
-                icon: 'mdi-help'
-            },
-
+                organzation: "Importal",
+                date: "2024-01",
+                description: "Importal a tech forward U.S. Customs brokerage. While working at Importal I lead the design and development of several major epics including our Product Library, Reporting & Analytics, our Plan & Subscription Data Model.",
+                images: [],
+                technologies: ["typescript", "react", "express", "mongodb", "aws"],
+                role: "Founding Engineer"
+            }
         ]
     }),
 
@@ -316,11 +321,21 @@ export default defineComponent({
         sortedExperiences() {
 
             return this.experiences.sort((experience1, experience2) => {
+            
                 if (experience1.date > experience2.date) {
-                    return -1
+                        return -1
+                } else if (experience1.date == experience2.date) {
+
+                    if(experience1.type === experience2.type) {
+                            return 0;
+                    } else {
+                        const experienceOrder = ['Event', 'Project', 'Award']            
+                        return (experienceOrder.indexOf(experience1.type) > experienceOrder.indexOf(experience2.type)) ? -1 : 1
+                    }
                 } else {
                     return 1
                 }
+                
             })
         },
 
