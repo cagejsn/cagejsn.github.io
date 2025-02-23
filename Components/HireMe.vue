@@ -19,7 +19,7 @@ export default {
                     Professional Summary
                 </v-card-title>
                 <v-card-text>                    
-                    I am an outcome-oriented Senior Software Engineer with 6 years of professional software experience. I spent the first part of my career in software consulting. I strive to be a impact player, taking on the hardest and most valuable problems available to work on. I bring a creative perspective to technology organizations, and my wide technical knowledge allows me to function accurately in any area of a technology product. I value relationships, and my strong interpersonal skills enable me to influence others and drive change within organizations. I have a track record of leading teams to meet their goals, and I push the team to focus on what matters most for the big picture.
+                    I am an outcome-oriented Staff Software Engineer with 8 years of professional software experience. I curently work on startups, but I spent the first part of my career in software consulting. I strive to be a impact player, taking on the hardest and most valuable problems available to work on. I bring a creative perspective to technology organizations, and my wide technical knowledge allows me to function accurately in any area of a technology product. I value relationships, and my strong interpersonal skills enable me to influence others and drive change within organizations. I have a track record of leading teams to meet their goals, and I push the team to focus on what matters most for the big picture.
                 </v-card-text>
             </v-card>
 
