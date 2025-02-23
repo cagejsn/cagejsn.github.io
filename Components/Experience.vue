@@ -305,7 +305,7 @@ export default defineComponent({
                 personalOrProfessional: "Professional",
                 organzation: "Importal",
                 date: "2024-01",
-                description: "Importal a tech forward U.S. Customs brokerage. I was the first employee. As the Founding Engineer, I helped build the engineering organization. In addition to design and development of several major epics, I was also responsible for building our interview pipeline and defining our Cloud & GenAI strategies.",
+                description: "Importal is a AI enabled U.S. Customs brokerage. I was the first employee. As the Founding Engineer, I helped build the engineering organization. In addition to design and development of several major epics, I was also responsible for building our interview pipeline and defining our Cloud & GenAI strategies.",
                 images: [],
                 technologies: ["typescript", "react", "express", "mongodb", "aws"],
                 role: "Founding Engineer"
