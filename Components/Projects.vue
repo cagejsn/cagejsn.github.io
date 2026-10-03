@@ -56,20 +56,9 @@ export default ({
 
 </script>
 <template>
-    <v-container fluid class="projects-container">
-        <v-row>
-
-
-
-
-            <project-card class=" v-col-sm-12 v-col-md-12 v-col-lg-6  v-col-xl-4 project-card" v-for="project in this.projects"
-                :key="project" :cardContent="project">
-            </project-card>
-
-
-        </v-row>
-    </v-container>
+    <div class="page page-wide">
+        <div class="project-grid">
+            <project-card v-for="project in projects" :key="project.title" :cardContent="project"></project-card>
+        </div>
+    </div>
 </template>
-
-
-

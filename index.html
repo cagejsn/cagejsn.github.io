@@ -1,26 +1,21 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 		<title>Cage Johnson</title>
-		
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vuetify@3.3.21/dist/vuetify.min.css">
-		<link rel="stylesheet" href="style.css">
-		<link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
 
-		
-		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
 	</head>
 <body>
 	<div id="app"></div>
 	<script src="https://unpkg.com/vue@3.4.13"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue3-sfc-loader/dist/vue3-sfc-loader.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vuetify@3.3.21/dist/vuetify.min.js"></script>
 	<script>
 		const { createApp } = Vue
-		const { createVuetify } = Vuetify
 
 		const options = {
 			moduleCache: {
@@ -47,15 +42,13 @@
 		const { loadModule } = window['vue3-sfc-loader'];
 
 		const app = createApp({
-			components: {				
+			components: {
 				'personal-website': Vue.defineAsyncComponent(() => loadModule('./PersonalWebsite.vue', options))
 			},
 			template: '<personal-website> </personal-website>'
 		});
 
-
-		const vuetify = createVuetify()
-		app.use(vuetify).mount('#app');
+		app.mount('#app');
 
 	</script>
 </body>

@@ -13,7 +13,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
 
   data: () => ({
-    tab: null,
+    tab: 'Experience',
     items: [
     'Experience', 'Hire Me', 'Personal Projects', 'Resume'
     ],
@@ -24,6 +24,11 @@ export default defineComponent({
   },
   computed: {
 
+  },
+  watch: {
+    tab() {
+      window.scrollTo(0, 0)
+    }
   },
   components: {
     'resume': Resume,
@@ -38,37 +43,28 @@ export default defineComponent({
 </script>
 
 <template>
-  <v-app>
-
-    <v-app-bar density="compact" >
-      <v-tabs v-model="tab">
-        <v-tab v-for="item in items" :key="item" :value="item">
+  <div class="shell">
+    <header class="top">
+      <div class="brand">Cage Johnson</div>
+      <nav class="nav" aria-label="Sections">
+        <button
+          v-for="item in items"
+          :key="item"
+          type="button"
+          :class="{ active: tab === item }"
+          :aria-current="tab === item ? 'page' : null"
+          @click="tab = item"
+        >
           {{ item }}
-        </v-tab>
-      </v-tabs>
-    </v-app-bar>
+        </button>
+      </nav>
+    </header>
 
-
-    <v-window v-model="tab" style="height: 100%; background-color: #eeeeee;">
-      <v-window-item value="Experience" class="window-item">
-        <experience></experience>
-      </v-window-item>
-      <v-window-item value="Hire Me" class="window-item">
-        <hire-me></hire-me>
-      </v-window-item>
-      <v-window-item value="Personal Projects" class="window-item">
-        <projects></projects>
-      </v-window-item>
-
-      <v-window-item value="Resume" class="window-item">
-        <resume url="./resume.pdf"></resume>
-      </v-window-item>
-
-    </v-window>
-
-
-  </v-app>
+    <main class="stage">
+      <experience v-show="tab === 'Experience'"></experience>
+      <hire-me v-show="tab === 'Hire Me'"></hire-me>
+      <projects v-show="tab === 'Personal Projects'"></projects>
+      <resume v-if="tab === 'Resume'" url="./resume.pdf"></resume>
+    </main>
+  </div>
 </template>
-
-
-

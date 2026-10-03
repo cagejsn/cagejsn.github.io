@@ -355,6 +355,17 @@ export default defineComponent({
         }
 
     },
+    methods: {
+        toggleScope(value) {
+            const selected = this.personalProfessional
+            const index = selected.indexOf(value)
+            if (index === -1) {
+                selected.push(value)
+            } else {
+                selected.splice(index, 1)
+            }
+        },
+    },
     watch: {
 
     },
@@ -365,89 +376,27 @@ export default defineComponent({
 
 </script>
 <template>
-    <v-container fluid class="projects-container">
+    <div class="page">
+        <div class="filters">
+            <span>Show</span>
+            <label class="toggle" :class="{ on: personalProfessional.includes('Personal') }">
+                <input type="checkbox" :checked="personalProfessional.includes('Personal')" @change="toggleScope('Personal')">
+                Personal
+            </label>
+            <label class="toggle" :class="{ on: personalProfessional.includes('Professional') }">
+                <input type="checkbox" :checked="personalProfessional.includes('Professional')" @change="toggleScope('Professional')">
+                Professional
+            </label>
+        </div>
 
-        <v-card>
+        <p v-if="filteredExperiences.length === 0" class="empty">Nothing matches these filters.</p>
 
-            <v-toolbar density="compact">
-                <v-toolbar-title>Filters</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-btn @click="showOptions = !showOptions">{{ showOptions ? 'Close' : 'Open' }}</v-btn>
-            </v-toolbar>
-
-            <v-expand-transition>
-                <div v-show="showOptions">
-
-                    <v-card-text>
-                        <h2 class="text-h6 mb-2">
-                            Personal / Professional
-                        </h2>
-
-                        <v-chip-group v-model="personalProfessional" column multiple>
-                            <v-chip filter variant="outlined" value="Personal">
-                                Personal
-                            </v-chip>
-                            <v-chip filter variant="outlined" value="Professional">
-                                Professional
-                            </v-chip>
-
-
-                        </v-chip-group>
-
-                        <!-- TODO -->
-                        <!-- <h2 class="text-h6 mb-2">
-                            Type
-                        </h2>
-
-                        <v-chip-group v-model="experienceType" column multiple>
-                            <v-chip filter variant="outlined" value="Project">
-                                Project
-                            </v-chip>
-                            <v-chip filter variant="outlined" value="Award">
-                                Award
-                            </v-chip>
-                            <v-chip filter variant="outlined" value="Job">
-                                Job
-                            </v-chip>
-                            <v-chip filter variant="outlined" value="Event">
-                                Event
-                            </v-chip>
-                        </v-chip-group>
-
-                        <h2 class="text-h6 mb-2">
-                            Discipline
-                        </h2>
-
-                        <v-chip-group v-model="experienceMedium" column multiple>
-                            <v-chip filter variant="outlined" value="Software">
-                                Software
-                            </v-chip>
-                            <v-chip filter variant="outlined" value="Other">
-                                Other
-                            </v-chip>
-
-                        </v-chip-group> -->
-                    </v-card-text>
-                </div>
-            </v-expand-transition>
-        </v-card>
-
-
-        <v-divider></v-divider>
-        <v-row>
-            <v-col>
-                <v-timeline  density="compact" align="start" style="width: 100%;">
-
-                    <template v-for="experience in filteredExperiences">
-
-                        <experience-item :experience="experience"></experience-item>
-
-                    </template>
-
-                </v-timeline>
-            </v-col>
-        </v-row>
-    </v-container>
+        <div v-else class="timeline">
+            <experience-item v-for="experience in filteredExperiences"
+                :key="experience.type + experience.date + (experience.title || '') + (experience.description || '')"
+                :experience="experience"></experience-item>
+        </div>
+    </div>
 </template>
 
 
