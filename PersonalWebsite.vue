@@ -6,6 +6,7 @@ import Projects from './Components/Projects.vue'
 import Videos from './Components/Videos.vue'
 import Experience from './Components/Experience.vue'
 import HireMe from './Components/HireMe.vue'
+import Home from './Components/Home.vue'
 
 
 import { defineComponent } from 'vue'
@@ -13,9 +14,9 @@ import { defineComponent } from 'vue'
 export default defineComponent({
 
   data: () => ({
-    tab: 'Experience',
+    tab: 'Home',
     items: [
-    'Experience', 'Hire Me', 'Personal Projects', 'Resume'
+    'Home', 'Experience', 'Hire Me', 'Personal Projects', 'Resume'
     ],
   }),
 
@@ -36,7 +37,8 @@ export default defineComponent({
     'projects': Projects,
     'videos': Videos,
     'experience': Experience,
-    'hire-me': HireMe
+    'hire-me': HireMe,
+    'home': Home
   }
 })
 
@@ -61,6 +63,7 @@ export default defineComponent({
     </header>
 
     <main class="stage">
+      <home v-show="tab === 'Home'" :active="tab === 'Home'"></home>
       <experience v-show="tab === 'Experience'"></experience>
       <hire-me v-show="tab === 'Hire Me'"></hire-me>
       <projects v-show="tab === 'Personal Projects'"></projects>
