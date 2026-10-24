@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secret Santa · Cage Johnson</title>
+  <meta name="description" content="Signup for the Johnson Family Christmas Secret Santa.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    :root {
+      --night: #143028;
+      --night-deep: #0e241d;
+      --paper: #f6f1e8;
+      --ink: #241c16;
+      --muted: #5e584f;
+      --line: rgba(141, 59, 36, 0.28);
+      --cranberry: #8d3b24;
+      --gold: #c6a15a;
+      --cream: #f3e6c4;
+      --serif: "Newsreader", "Iowan Old Style", Palatino, Georgia, serif;
+      --sans: "Source Sans 3", "Avenir Next", "Segoe UI", sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+      overflow-x: clip;
+    }
+
+    body {
+      min-height: 100%;
+      margin: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(232, 196, 140, 0.16), transparent 55%),
+        radial-gradient(ellipse 40% 30% at 100% 0%, rgba(141, 59, 36, 0.18), transparent 50%),
+        var(--night);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 400;
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+
+    a {
+      color: var(--cranberry);
+      text-underline-offset: 0.18em;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cream);
+      outline-offset: 3px;
+    }
+
+    .snow {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .snow span {
+      position: absolute;
+      left: var(--x);
+      top: -12px;
+      width: var(--s);
+      height: var(--s);
+      border-radius: 50%;
+      background: #fff;
+      opacity: var(--o);
+      animation: fall var(--d) linear infinite;
+      animation-delay: var(--delay);
+    }
+
+    @keyframes fall {
+      0% { transform: translate3d(0, -8vh, 0); }
+      100% { transform: translate3d(var(--drift, 16px), 108vh, 0); }
+    }
+
+    .top {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: baseline;
+      padding: 1.15rem 1.75rem 0.35rem;
+    }
+
+    .brand {
+      color: var(--paper);
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .brand:hover {
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    .light-row {
+      position: relative;
+      z-index: 3;
+      height: 54px;
+      margin: 0.25rem 0 0;
+    }
+
+    .wire {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100%;
+      height: 42px;
+    }
+
+    .bulbs {
+      position: absolute;
+      left: 2.5%;
+      right: 2.5%;
+      top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .bulb {
+      width: 13px;
+      height: 17px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.75), transparent 42%),
+        var(--c);
+      box-shadow: 0 0 10px var(--c), 0 8px 14px rgba(0, 0, 0, 0.25);
+      animation: glow 2.6s ease-in-out infinite;
+      animation-delay: calc(var(--i) * 0.31s);
+      position: relative;
+    }
+
+    .bulb::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 3px;
+      width: 7px;
+      height: 5px;
+      border-radius: 1px;
+      background: #3d3128;
+    }
+
+    @keyframes glow {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.42; }
+    }
+
+    .scene {
+      position: relative;
+      z-index: 2;
+      width: min(920px, calc(100% - 1.5rem));
+      margin: 0 auto;
+    }
+
+    .scene svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .bauble {
+      transform-origin: 250px 8px;
+      animation: sway 5.5s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-2.5deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    .page {
+      position: relative;
+      z-index: 2;
+      width: min(720px, calc(100% - 2rem));
+      max-width: calc(100% - 2rem);
+      margin: -52px auto 4.5rem;
+    }
+
+    .card {
+      background:
+        radial-gradient(120% 60% at 0% 0%, rgba(255, 255, 255, 0.65), transparent 46%),
+        var(--paper);
+      color: var(--ink);
+      padding: 2.6rem 2.4rem 2rem;
+      border-radius: 3px;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.45) inset,
+        0 28px 70px rgba(0, 0, 0, 0.38);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 11px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      pointer-events: none;
+    }
+
+    .card {
+      position: relative;
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--cranberry);
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.05rem;
+    }
+
+    h1 {
+      margin: 0.15rem 0 0;
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 7vw, 4.2rem);
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+
+    .rule {
+      width: 4.5rem;
+      height: 1px;
+      margin: 1.15rem 0 0.2rem;
+      background: var(--gold);
+    }
+
+    .card p {
+      max-width: 62ch;
+      margin: 1rem 0 0;
+    }
+
+    .quiet {
+      color: var(--muted);
+    }
+
+    .signup {
+      margin-top: 1.75rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid rgba(36, 28, 22, 0.12);
+    }
+
+    .signup .quiet {
+      margin-top: 0;
+    }
+
+    .form-link {
+      display: inline-block;
+      margin-top: 0.85rem;
+    }
+
+    .form-shell {
+      margin-top: 1.15rem;
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .form-frame {
+      display: block;
+      width: 1px;
+      min-width: 100%;
+      max-width: 100%;
+      height: 1540px;
+      border: 0;
+      border-radius: 2px;
+      background: #fff;
+    }
+
+    @media (max-width: 640px) {
+      .top {
+        padding: 1rem 1.1rem 0.2rem;
+      }
+
+      .card {
+        padding: 1.85rem 1.2rem 1.2rem;
+      }
+
+      .card::before {
+        inset: 8px;
+      }
+
+      .page {
+        width: calc(100% - 1.25rem);
+        margin-top: -28px;
+      }
+
+      .bulb:nth-child(odd) {
+        display: none;
+      }
+
+      .form-frame {
+        height: 1760px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .snow {
+        display: none;
+      }
+
+      .bulb,
+      .bauble {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="snow" aria-hidden="true">
+    <span style="--x:6%;--d:15s;--delay:-2s;--s:3px;--o:.7;--drift:12px"></span>
+    <span style="--x:14%;--d:19s;--delay:-8s;--s:5px;--o:.45;--drift:-18px"></span>
+    <span style="--x:22%;--d:13s;--delay:-4s;--s:2px;--o:.8;--drift:10px"></span>
+    <span style="--x:31%;--d:21s;--delay:-11s;--s:6px;--o:.35;--drift:22px"></span>
+    <span style="--x:39%;--d:16s;--delay:-6s;--s:3px;--o:.65;--drift:-8px"></span>
+    <span style="--x:47%;--d:18s;--delay:-1s;--s:4px;--o:.5;--drift:14px"></span>
+    <span style="--x:55%;--d:14s;--delay:-9s;--s:2px;--o:.75;--drift:-12px"></span>
+    <span style="--x:63%;--d:22s;--delay:-5s;--s:7px;--o:.3;--drift:18px"></span>
+    <span style="--x:71%;--d:15s;--delay:-13s;--s:3px;--o:.6;--drift:-16px"></span>
+    <span style="--x:78%;--d:17s;--delay:-3s;--s:4px;--o:.5;--drift:9px"></span>
+    <span style="--x:86%;--d:20s;--delay:-7s;--s:2px;--o:.8;--drift:-14px"></span>
+    <span style="--x:93%;--d:12s;--delay:-10s;--s:5px;--o:.4;--drift:11px"></span>
+  </div>
+
+  <header class="top">
+    <a class="brand" href="/">Cage Johnson</a>
+  </header>
+
+  <div class="light-row" aria-hidden="true">
+    <svg class="wire" viewBox="0 0 1200 48" preserveAspectRatio="none">
+      <path d="M0 10 C 80 42, 160 6, 240 18 S 400 44, 480 14 S 640 4, 720 20 S 880 46, 960 12 S 1120 8, 1200 22" fill="none" stroke="#3a2e26" stroke-width="3"></path>
+    </svg>
+    <div class="bulbs">
+      <i class="bulb" style="--c:#c4493a;--i:0"></i>
+      <i class="bulb" style="--c:#e2c37a;--i:1"></i>
+      <i class="bulb" style="--c:#f4efe4;--i:2"></i>
+      <i class="bulb" style="--c:#7dba86;--i:3"></i>
+      <i class="bulb" style="--c:#c4493a;--i:4"></i>
+      <i class="bulb" style="--c:#e2c37a;--i:5"></i>
+      <i class="bulb" style="--c:#f7f3ea;--i:6"></i>
+      <i class="bulb" style="--c:#c4493a;--i:7"></i>
+      <i class="bulb" style="--c:#7dba86;--i:8"></i>
+      <i class="bulb" style="--c:#e2c37a;--i:9"></i>
+      <i class="bulb" style="--c:#f4efe4;--i:10"></i>
+      <i class="bulb" style="--c:#c4493a;--i:11"></i>
+    </div>
+  </div>
+
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 760 230" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#e7d7a8">
+        <circle cx="48" cy="42" r="1.3"></circle>
+        <circle cx="96" cy="78" r="1"></circle>
+        <circle cx="150" cy="28" r="1.5"></circle>
+        <circle cx="210" cy="64" r="1"></circle>
+        <circle cx="430" cy="36" r="1.2"></circle>
+        <circle cx="500" cy="72" r="1"></circle>
+        <circle cx="690" cy="34" r="1.1"></circle>
+        <path d="M320 24 l1.1 3.2 h3.4 l-2.7 2 1 3.3 -2.8-2 -2.8 2 1-3.3 -2.7-2 h3.4 z"></path>
+        <path d="M560 48 l0.8 2.4 h2.5 l-2 1.5 0.8 2.4 -2.1-1.5 -2.1 1.5 0.8-2.4 -2-1.5 h2.5 z"></path>
+      </g>
+
+      <defs>
+        <mask id="moon">
+          <circle cx="640" cy="52" r="26" fill="white"></circle>
+          <circle cx="654" cy="44" r="22" fill="black"></circle>
+        </mask>
+      </defs>
+      <circle cx="640" cy="52" r="26" fill="#f3e6c4" mask="url(#moon)"></circle>
+
+      <g class="bauble">
+        <path d="M250 6 v26" stroke="#c6a15a" stroke-width="1.4"></path>
+        <rect x="242" y="30" width="16" height="7" rx="1" fill="#c6a15a"></rect>
+        <circle cx="250" cy="68" r="28" fill="#8d3b24"></circle>
+        <ellipse cx="239" cy="57" rx="8" ry="5" fill="#f6f1e8" opacity="0.4"></ellipse>
+      </g>
+
+      <g fill="#123126">
+        <polygon points="70,176 38,176 54,112"></polygon>
+        <polygon points="118,184 78,184 98,108"></polygon>
+        <polygon points="168,180 132,180 150,118"></polygon>
+        <polygon points="560,182 522,182 541,116"></polygon>
+        <polygon points="612,176 578,176 595,120"></polygon>
+        <polygon points="668,186 626,186 647,112"></polygon>
+      </g>
+      <g fill="#1c4634">
+        <polygon points="70,150 46,150 58,104"></polygon>
+        <polygon points="118,156 88,156 103,98"></polygon>
+        <polygon points="168,154 140,154 154,108"></polygon>
+        <polygon points="560,154 530,154 545,104"></polygon>
+        <polygon points="612,150 586,150 599,108"></polygon>
+        <polygon points="668,158 636,158 652,104"></polygon>
+      </g>
+      <g fill="#2a5a42">
+        <polygon points="70,128 52,128 61,96"></polygon>
+        <polygon points="118,132 96,132 107,92"></polygon>
+        <polygon points="168,132 146,132 157,100"></polygon>
+        <polygon points="560,130 538,130 549,96"></polygon>
+        <polygon points="612,128 592,128 602,98"></polygon>
+        <polygon points="668,134 644,134 656,96"></polygon>
+      </g>
+
+      <path d="M0 176 C 90 158, 180 198, 300 174 C 430 148, 560 200, 760 162 V 230 H 0 Z" fill="#f3ecdf"></path>
+
+      <g>
+        <rect x="292" y="132" width="62" height="46" rx="2" fill="#f7f3ea"></rect>
+        <rect x="319" y="132" width="8" height="46" fill="#8d3b24"></rect>
+        <rect x="292" y="150" width="62" height="8" fill="#8d3b24"></rect>
+        <path d="M319 132 c-8 -10, -4 -16, 4 -16 c6 0, 8 6, 4 12" fill="none" stroke="#8d3b24" stroke-width="2"></path>
+      </g>
+      <g>
+        <rect x="368" y="150" width="40" height="30" rx="2" fill="#1c4634"></rect>
+        <rect x="385" y="150" width="6" height="30" fill="#c6a15a"></rect>
+        <rect x="368" y="162" width="40" height="6" fill="#c6a15a"></rect>
+      </g>
+    </svg>
+  </div>
+
+  <main class="page">
+    <article class="card">
+      <p class="kicker">Johnson Family Christmas</p>
+      <h1>Secret Santa</h1>
+      <div class="rule"></div>
+      <p>If you want to do the Secret Santa, you can sign up on this page. Further down there’s a form where you can say what you’re into, and mention a few things you’d be happy to get. I’ll read what everyone writes and match people from that.</p>
+      <p>You can sign up on your own, or as a couple if you’d rather do one gift together. Kids can sign up too, and I’ll match a kid with another kid. Plan on spending somewhere between $80 and $100, and bring the gift with you to family Christmas.</p>
+      <p>It helps if you’re a little specific. If you just say you like everything, the person who has you won’t know where to start. A kind of coffee, a book, or a link is plenty.</p>
+
+      <section class="signup" id="signup" aria-label="Signup">
+        <p class="quiet">What you write stays with me, and with the person who has you, so they have something to go on.</p>
+        <p><a class="form-link" href="https://docs.google.com/forms/d/e/1FAIpQLSfDbtj1i6xlgkkYZg6PLXlD7m4H8gOU6UEbJwga6RQhNx7Ihg/viewform" target="_blank" rel="noopener noreferrer">Open the form in a new tab</a></p>
+        <div class="form-shell">
+          <iframe
+            class="form-frame"
+            title="Secret Santa signup form"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSfDbtj1i6xlgkkYZg6PLXlD7m4H8gOU6UEbJwga6RQhNx7Ihg/viewform?embedded=true"
+          >The signup form is loading.</iframe>
+        </div>
+      </section>
+    </article>
+  </main>
+</body>
+</html>
